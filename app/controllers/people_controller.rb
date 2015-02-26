@@ -22,7 +22,7 @@ class PeopleController < ApplicationController
     if @person.update(person_params)
       redirect_to @person, notice: 'Person was successfully updated.'
     else
-      @sign_in_error = "Invalid Naming Convention"
+      @sign_in_error = "This person could not be created. You must enter a title/last name or a first/last name."
       render :edit
     end
   end
@@ -32,7 +32,7 @@ class PeopleController < ApplicationController
     if @person.save
       redirect_to root_path, notice: "Person was created!"
     else
-      @sign_in_error = "Invalid Naming Convention"
+      @sign_in_error = "This person could not be created. You must enter a title/last name or a first/last name."
       render :new
     end
   end
